@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">远航工具箱</string>
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="action_settings">设置</string>
+    <string name="menu_home">首页</string>
+    <string name="menu_gallery">功能</string>
+    <string name="zen_mode_desc">帮助您远离手机，享受生活。</string>
+    <string name="pause_download_on_mobile_network">移动网络下是否暂停下载</string>
+    <string name="progress_speed_downloaded">进度:%s, 速度:%s, 已下载:%s</string>
+    <string name="checker_ab_supported_supporting_text">您的设备包含对无缝系统更新的支持，且存在 A/B 系统分区。</string>
+    <string name="checker_ab_supported_virtual_supporting_text">您的设备包含对新版无缝系统更新的支持，且存在虚拟 A /B 系统分区。虚拟 A/B 分区可以根据需要自由地调整大小。</string>
+    <string name="checker_cpu_architecture_known_supporting_text">您的设备使用基于 %1$s 架构的CPU。</string>
+    <string name="private_text">本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。  1. 适用范围 (a) 在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；  (b) 在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；  © 本应用通过合法途径从商业伙伴处取得的用户个人数据。  您了解并同意，以下信息不适用本隐私权政策：  (a) 您在使用本应用平台提供的搜索服务时输入的关键字信息；  (b) 本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；  © 违反法律规定或违反本应用规则行为及本应用已对您采取的措施。  2. 信息使用 (a)本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。  (b) 本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。  © 为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。  3. 信息披露 在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：  (a) 经您事先同意，向第三方披露；  (b)为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；  © 根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；  (d) 如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；  (e) 如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；  (f) 在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。  (g) 其它本应用根据法律、法规或者网站政策认为合适的披露。  4. 信息存储和交换 本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。  5. Cookie的使用 (a) 在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies ，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。  (b) 您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。  (c) 通过本应用所设cookies所取得的有关信息，将适用本政策。  6. 信息安全 (a) 本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。  (b) 在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对方 披露自己的个人信息，如联络方式或者邮政地址。  7.本隐私政策的更改 (a)如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。  (b)本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。  为防止向第三方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。</string>
+    <string name="no_install_qq">未安装QQ</string>
+    <!-- &#8230; = ... -->
+    <string name="search">搜索</string>
+    <string name="follow_system">跟随系统</string>
+    <string name="album_name_all">全部</string>
+
+    <string name="button_preview">预览</string>
+    <string name="button_apply_default">使用</string>
+    <string name="button_apply">使用(%1$d)</string>
+    <string name="button_back">返回</string>
+    <string name="button_ok">我知道了</string>
+    <string name="button_original">原图</string>
+    <string name="button_sure_default">确定</string>
+    <string name="button_sure">确定</string>
+    <string name="button_complete">完成</string>
+    <string name="button_null">""</string>
+    <string name="folder_count">%1$s(%2$d)</string>
+    <string name="picture_size">%1$s M</string>
+
+    <string name="photo_grid_capture">拍一张</string>
+    <string name="empty_text">还没有图片或视频</string>
+    <string name="error_over_count">最多只能选择 %1$d 个文件</string>
+    <string name="error_over_count_of_image">最多只能选择 %1$d 个图片文件</string>
+    <string name="error_over_count_of_video">最多只能选择 %1$d 个视频文件</string>
+    <string name="error_file_type">不支持的文件类型</string>
+    <string name="error_type_conflict">不能同时选择图片和视频</string>
+    <string name="error_no_video_activity">没有支持视频预览的应用</string>
+    <string name="error_over_original_size">"该照片大于 %1$d M，无法上传将取消勾选原图"</string>
+    <string name="error_over_original_count">"有 %1$d 张照片大于 %2$d M\n无法上传，将取消勾选原图"</string>
+    <string name="error_crop">裁剪失败</string>
+    <string name="please_select_media_resource">请选择媒体资源</string>
+    <string name="empty_album">相册为空</string>
+
+    <string name="ucrop_label_original">原始比例</string>
+    <string name="ucrop_label_edit_photo">裁剪</string>
+
+    <string name="ucrop_menu_crop">裁剪</string>
+
+    <string name="ucrop_gif_tag">动图</string>
+    <string name="cancel">取消</string>
+    <string name="other">其他</string>
+    <string name="copy">复制</string>
+    <string name="no_root">无 root</string>
+    <string name="share">分享</string>
+    <string name="action">操作</string>
+    <string name="menu_resources">资源</string>
+    <string name="pages">页面</string>
+    <string name="check_update">检查更新</string>
+    <string name="alipay">支付宝捐赠</string>
+    <string name="joinGroup">加入QQ群</string>
+    <string name="wepay">微信捐赠</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="cloud_rules">EXIF信息</string>
+    <string name="send_files">发送文件</string>
+    <string name="receiver_files">接收文件</string>
+    <string name="network_settings">网络设置</string>
+    <string name="title_activity_manage_space">管理空间</string>
+    <string name="next">下一步</string>
+    <string name="location_settings">位置设置</string>
+    <string name="details">详情</string>
+    <string name="color_value">颜色值</string>
+    <string name="search_movies">搜索影片名/演员/导演</string>
+    <string name="join_us">加入我们</string>
+    <string name="author">Author</string>
+    <string name="save">保存</string>
+    <string name="error">加载失败...</string>
+    <string name="subscribe_manage">订阅管理</string>
+    <string name="empty">数据为空...</string>
+    <string name="sniffing_error">加载出错</string>
+    <string name="title_activity_movies_settings">电影大全设置</string>
+    <string name="dlna_devices_list">投屏设备列表</string>
+
+    <string-array name="tips">
+        <item>You can Long Click an episode/chapter to Mark it as Read.</item>
+        <item>Long Clicking Shows can directly open List Editor.</item>
+        <item>There are few more easter eggs hidden in the App.</item>
+        <item>Challenge: Go to the very bottom of the Popular Anime &amp; Manga</item>
+        <item>Try Long Clicking the Show\'s Title.</item>
+        <item>Damn, why are you wasting your Time?</item>
+        <item>You can Long Click to copy this Message.</item>
+        <item>OMG LOOK! YOU FOUND AN EASTER EGG!?</item>
+        <item>You know who else likes this Animation?</item>
+        <item>MAL support? bruh.</item>
+        <item>Novels? more like NO vels.</item>
+        <item>Long Click the logo to check for App Update</item>
+    </string-array>
+    <string name="download_start_error">无法开始下载</string>
+    <string name="download_start_error_offline_license">无法获取脱机许可证</string>
+    <string name="download_playlist_unsupported">此演示应用程序不支持下载播放列表</string>
+    <string name="download_scheme_unsupported">此演示应用程序仅支持下载 http 流</string>
+    <string name="download_live_unsupported">此演示应用程序不支持下载实时内容</string>
+    <string name="download_ads_unsupported">IMA 不支持线下广告</string>
+    <string name="prefer_extension_decoders">首选扩展解码器</string>
+    <string name="exo_download_description">下载服务</string>
+    <string name="common_permission_description">权限说明</string>
+    <string name="common_permission_message">使用此功能需要先授予%s</string>
+    <string name="common_permission_granted">授予</string>
+    <string name="common_permission_denied">取消</string>
+
+    <string name="common_permission_alert">授权提醒</string>
+    <string name="common_permission_fail_hint">授权失败，请正确授予权限</string>
+    <string name="common_permission_fail_assign_hint">授权失败，请正确授予%s</string>
+    <string name="common_permission_manual_fail_hint">获取权限失败，请手动授予权限</string>
+    <string name="common_permission_manual_assign_fail_hint">获取权限失败，请手动授予%s</string>
+    <string name="common_permission_background_location_fail_hint">获取后台定位权限失败，\n请您选择《始终允许》</string>
+    <string name="common_permission_background_sensors_fail_hint">获取后台传感器权限失败，\n请您选择《始终允许》</string>
+    <string name="common_permission_media_location_hint_fail">获取媒体位置权限失败\n请清除应用数据后重试</string>
+    <string name="common_permission_goto_setting_page">前往授权</string>
+
+    <string name="common_permission_unknown">权限</string>
+    <string name="common_permission_comma">、</string>
+
+    <string name="common_permission_calendar">日历权限</string>
+    <string name="common_permission_camera">相机权限</string>
+    <string name="common_permission_contacts">通讯录权限</string>
+    <string name="common_permission_location">定位权限</string>
+    <string name="common_permission_location_background">后台定位权限</string>
+    <string name="common_permission_nearby_devices">附近的设备权限</string>
+    <string name="common_permission_microphone">麦克风权限</string>
+    <string name="common_permission_phone">电话权限</string>
+    <string name="common_permission_call_logs">通话记录权限</string>
+    <string name="common_permission_body_sensors">身体传感器权限</string>
+    <string name="common_permission_body_sensors_background">后台身体传感器权限</string>
+    <string name="common_permission_activity_recognition_api29">健身运动权限</string>
+    <string name="common_permission_activity_recognition_api30">身体活动权限</string>
+    <string name="common_permission_access_media_location">读取媒体文件位置权限</string>
+    <string name="common_permission_sms">短信权限</string>
+    <string name="common_permission_storage">存储权限</string>
+    <string name="common_permission_post_notifications">发送通知权限</string>
+    <string name="common_permission_image_and_video">照片和视频权限</string>
+    <string name="common_permission_music_and_audio">音乐和音频权限</string>
+    <string name="common_permission_get_installed_apps">读取应用列表权限</string>
+
+    <string name="common_permission_all_file_access">所有文件访问权限</string>
+    <string name="common_permission_install_unknown_apps">安装应用权限</string>
+    <string name="common_permission_display_over_other_apps">悬浮窗权限</string>
+    <string name="common_permission_modify_system_settings">修改系统设置权限</string>
+    <string name="common_permission_allow_notifications">通知权限</string>
+    <string name="common_permission_allow_notifications_access">通知栏监听权限</string>
+    <string name="common_permission_apps_with_usage_access">查看使用情况权限</string>
+    <string name="common_permission_alarms_reminders">查看闹钟提醒权限</string>
+    <string name="common_permission_do_not_disturb_access">勿扰权限</string>
+    <string name="common_permission_ignore_battery_optimize">忽略电池优化权限</string>
+    <string name="common_permission_picture_in_picture">画中画权限</string>
+    <string name="common_permission_vpn">\tVPN\t权限</string>
+    <string name="welcome_use">欢迎使用远航工具箱</string>
+    <string name="disabled">停用</string>
+    <string name="enabled">启用</string>
+    <string name="qq_guild">QQ 频道</string>
+    <string name="get_start">立即开始</string>
+    <string name="exit_voyage">退出 远航</string>
+    <string name="play">播放</string>
+    <string name="stop">停止</string>
+    <string name="encrypt">加密</string>
+    <string name="decrypt">解密</string>
+    <string name="input_site_name">请输入网站名称</string>
+    <string name="input_site_description">请输入网站描述</string>
+    <string name="support_markdown">支持 Markdown 语法</string>
+    <string name="input_site_preview_image">请输入网站预览图网址</string>
+    <string name="optional">可选</string>
+    <string name="input_site_url">请输入网站地址</string>
+    <string name="add">添加</string>
+    <string name="add_site">添加网站</string>
+    <string name="query">查询</string>
+    <string name="menu_favorite">收藏</string>
+    <string name="please_connect_same_wifi">请在已经连接了同一WiFi/局域网的电脑或其他设备上访问以下地址，下载本机文件。</string>
+    <string name="start_service">启动服务</string>
+    <string name="service_status">服务状态</string>
+    <string name="use_social_account">使用社交账号登录未注册的账号会自动注册</string>
+    <string name="login">登录</string>
+    <string name="login_after_unlock_role">登录之后即可解锁更多权益</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="or">或</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="qq_login">QQ登录</string>
+    <string name="share_string">分享</string>
+</resources>

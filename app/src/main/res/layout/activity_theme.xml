@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.vivo.ThemeActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@id/appbar"
+        style="@style/Widget.Material3.AppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true">
+
+        <com.google.android.material.appbar.SubtitleCollapsingToolbarLayout
+            android:id="@id/ctl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_178mdp"
+            app:collapsedSubtitleTextAppearance="@style/TextAppearance.SubTitle.YuanHang2"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.Title.YuanHang"
+            app:expandedTitleMargin="@dimen/dp_20"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap|snapMargins"
+            app:titleCollapseMode="scale"
+            app:toolbarId="@id/toolbar">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@id/toolbar"
+                style="@style/Widget.Material3.Toolbar.Surface"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_56mdp"
+                android:background="@android:color/transparent"
+                android:clipToPadding="false"
+                android:elevation="0dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/dp_8"
+                app:buttonGravity="center_vertical"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.SubtitleCollapsingToolbarLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16mdp"
+            android:hint="输入关键字以搜索..."
+            app:endIconDrawable="@drawable/ic_baseline_check_24"
+            app:endIconMode="custom"
+            app:layout_scrollFlags="exitUntilCollapsed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/style_type"
+            style="@style/RoundedTextInputLayout.DropDownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16mdp"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:layout_marginEnd="@dimen/_16mdp"
+            android:layout_marginBottom="@dimen/_16mdp"
+            android:hint="类型"
+            app:layout_scrollFlags="exitUntilCollapsed"
+            app:startIconDrawable="@drawable/ic_round_color_24"
+            app:startIconTint="?colorControlNormal">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/types"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:text="主题"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/sp_16" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.drake.brv.PageRefreshLayout
+        android:id="@+id/state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeEnabled="true"
+            app:stackFromEnd="true" />
+
+    </com.drake.brv.PageRefreshLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

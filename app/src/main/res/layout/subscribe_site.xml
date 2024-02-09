@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:windowBackground"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56mdp"
+        android:elevation="@dimen/_4mdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_8mdp"
+        android:paddingEnd="@dimen/_8mdp"
+        tools:ignore="RtlSymmetry">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8mdp"
+            android:layout_weight="1"
+            android:text="添加影视站"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save"
+            style="?attr/materialIconButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8mdp"
+            app:icon="@drawable/ic_content_save_outline"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/paste"
+            style="?attr/materialIconButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8mdp"
+            app:icon="@drawable/sheets_ic_paste"
+            app:iconGravity="textStart" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_16mdp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="网站名称 (必填)"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:text="搜索参数"
+                app:chipIcon="@drawable/search_material" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_url_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="搜索URL"
+                app:errorEnabled="true"
+                app:helperText="注意:只需输入带http(s)://网站域名即可,后面的搜索参数填在下方搜索参数输入框。"
+                app:startIconDrawable="@drawable/public_material">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_api_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="搜索API"
+                app:errorEnabled="true"
+                app:helperText="注意:只需输入带http(s)://网站域名即可,无需填写搜索参数及POST参数"
+                app:startIconDrawable="@drawable/public_material">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_api"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_param_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="搜索参数"
+                app:errorEnabled="true"
+                app:helperText="如果无搜索参数,请检查网站是否有Post参数"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_param"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/post_param_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="POST参数名 (可选)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/post_param"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user_agent_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="User-Agent (可选)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_agent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:text="详情参数"
+                app:chipIcon="@drawable/info_material" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/movie_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="影片名规则 (必填)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/theaters_material">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/movie_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/detail_url_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="详情页链接规则 (必填)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/info_material">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/detail_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/poster_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="海报规则 (必填)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/ic_image_outline">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/detail_status_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="详情影片状态规则"
+                app:errorEnabled="true"
+                app:helperText="没有请留空"
+                app:startIconDrawable="@drawable/info_material">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/detail_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/select_url_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="影片选集链接"
+                app:errorEnabled="true"
+                app:helperText="该选项仅在无搜索参数、POST参数、且搜索API不为空的情况下生效，否则请留空"
+                app:startIconDrawable="@drawable/info_material">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/select_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/movie_status_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="影片状态规则"
+                app:errorEnabled="true"
+                app:helperText="没有请留空"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/movie_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/actor_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="演员获取规则"
+                app:errorEnabled="true"
+                app:helperText="没有请留空"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/actor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/introduce_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="影片简介规则"
+                app:errorEnabled="true"
+                app:helperText="没有请留空"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/line_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="列表线路规则 (必填)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/line_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="列表线路名规则 (必填)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/line_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/episode_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="集数名规则 (必填)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/episode_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/video_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:hint="视频链接规则 (必填)"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/code_round">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/video_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

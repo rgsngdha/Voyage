@@ -1,0 +1,86 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="视频播放">
+
+    <PreferenceCategory app:title="播放">
+
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="auto"
+            app:entries="@array/video_hdr_entries"
+            app:entryValues="@array/video_hdr_values"
+            app:icon="@drawable/hdr"
+            app:key="video_hdr"
+            app:title="HDR"
+            app:useSimpleSummaryProvider="false" />
+
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="hdr"
+            app:entries="@array/video_color_mode_entries"
+            app:entryValues="@array/video_color_mode_values"
+            app:icon="@drawable/outline_palette_24"
+            app:key="video_color_mode"
+            app:title="颜色模式"
+            app:useSimpleSummaryProvider="false" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            android:enabled="false"
+            app:defaultValue="false"
+            app:icon="@drawable/outline_subtitles_24"
+            app:key="subtitles"
+            app:summary="播放时是否显示字幕 (如果有字幕源)"
+            app:title="字幕" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="false"
+            app:icon="@drawable/outline_skip_next_24"
+            app:key="auto_skip"
+            app:summary="是否自动跳过片头"
+            app:title="自动跳过" />
+
+        <EditTextPreference
+            app:icon="@drawable/outline_skip_next_24"
+            app:key="skip_time"
+            app:isPreferenceVisible="false"
+            app:summary="播放视频时默认跳过的开头时间 (单位:秒)"
+            app:title="默认跳过时间" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:icon="@drawable/outline_width_full_24"
+            app:key="auto_fullscreen"
+            app:summary="当视频准备好播放时自动进入全屏模式"
+            app:title="自动全屏" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory app:title="字幕">
+
+        <Preference
+            app:icon="@drawable/outline_text_fields_24"
+            app:key="subtitles_font"
+            app:summary="字幕字体"
+            app:title="字体" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="显示">
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="false"
+            app:icon="@drawable/outline_picture_in_picture_alt_24"
+            app:key="picture_in_picture"
+            app:summary="播放器是否显示切换画中画模式按钮"
+            app:summaryOff="播放器将不会显示切换画中画模式按钮"
+            app:summaryOn="播放器将会显示切换画中画模式按钮"
+            app:title="画中画" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="true"
+            app:icon="@drawable/outline_info_24"
+            app:key="video_info"
+            app:summary="是否在播放器上显示视频信息"
+            app:title="视频信息" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

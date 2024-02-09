@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.movies.fragments.VideoParserFragment">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/content_lay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.drake.statelayout.StateLayout
+                android:id="@+id/root_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <q.rorbin.verticaltablayout.VerticalTabLayout
+                        android:id="@+id/tabs"
+                        android:layout_width="@dimen/_86mdp"
+                        android:layout_height="match_parent"
+                        app:indicator_color="?colorPrimaryDark"
+                        app:indicator_width="@dimen/_2mdp"
+                        app:tab_height="@dimen/_42mdp"
+                        app:tab_margin="@dimen/_6mdp"
+                        app:tab_mode="scrollable" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="@dimen/_1mdp"
+                        android:layout_height="match_parent"
+                        android:alpha="0.1" />
+
+                    <com.drake.brv.PageRefreshLayout
+                        android:id="@+id/state"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                        app:srlEnableLoadMore="false">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:padding="10dp"
+                            android:clipToPadding="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                    </com.drake.brv.PageRefreshLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </com.drake.statelayout.StateLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

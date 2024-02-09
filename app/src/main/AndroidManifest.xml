@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.DEVICE_POWER"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.MEDIA_CONTENT_CONTROL"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_SECURE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:replace="android:maxSdkVersion" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission
+        android:name="android.permission.NEARBY_WIFI_DEVICES"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+    <uses-permission
+        android:name="android.permission.READ_NEARBY_STREAMING_POLICY"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 在其他应用之上显示内容 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 查看WLAN连接 -->
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK"
+        tools:node="replace" /> <!-- READ_LOGS -->
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" /> <!-- 读取您的SD卡中的内容 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 请求忽略电池优化 -->
+    <uses-permission android:name="android.permission.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND" /> <!-- 在后台运行 -->
+    <uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND" /> <!-- LOCATION_HARDWARE -->
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 人体传感器（如心跳速率检测器） -->
+    <uses-permission
+        android:name="android.permission.BATTERY_STATS"
+        tools:ignore="ProtectedPermissions" /> <!-- 发送持久广播 -->
+    <uses-permission
+        android:name="android.permission.INSTALL_PACKAGES"
+        tools:ignore="ProtectedPermissions" /> <!-- PACKAGE_USAGE_STATS -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" /> <!-- ACCESS_SUPERUSER -->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- BIND_WALLPAPER -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 更改您的音频设置 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- BIND_JOB_SERVICE -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_WALLPAPER_INTERNAL"
+        tools:ignore="ProtectedPermissions" />
+
+    <permission
+        android:name="${applicationId}.openadsdk.permission.TT_PANGOLIN"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="${applicationId}.openadsdk.permission.TT_PANGOLIN" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" /> <!-- GLOBAL_SEARCH -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="true" />
+
+    <queries>
+        <package android:name="com.google.zxing.client.android" />
+    </queries>
+
+    <application
+        android:name=".application.App"
+        android:allowBackup="true"
+        android:allowClearUserData="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:icon="@mipmap/ic_voyage"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:manageSpaceActivity=".settings.SettingsActivity"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:resizeableActivity="true"
+        android:roundIcon="@mipmap/ic_voyage"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="DataExtractionRules,HardcodedDebugMode,UnusedAttribute"
+        tools:overrideLibrary="com.google.zxing.client.android"
+        tools:replace="android:icon,android:allowBackup">
+        <activity
+            android:name=".activity.life.BaiduLibraryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.audio.GenshinImpactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.audio.AiVoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.AiStoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.MovieLinesSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.AiAvatarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.DogParagraphActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.app.DownloadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.SearchSoftwareActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.normal.DecimalConvertActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.ImagePreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.PersonDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.ListPersonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.HistoryPersonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.AllInOneJiexiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.system.FtpServiceActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".service.FTPService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.images.SearchWallpaperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.PostalQueryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.PostalCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.site.QueryIpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.video.anime.TraceMoeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.BingWallpaperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.audio.MusicPlayerActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.movies.user.MovieLoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.game.HonorKingsPowerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.audio.SearchMusicActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.crypt.Md2CryptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.site.AddSitesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.ImageCryptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.audio.PerfectTuneActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".service.ShizukuService"
+            android:directBootAware="true"
+            android:enabled="false"
+            android:exported="true"
+            android:process=":shizuku">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".activity.life.SocialQueryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.PhoneHistoryActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="${applicationId}.shizuku"
+            android:enabled="true"
+            android:exported="true"
+            android:multiprocess="false"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" /> <!-- android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" is to protect this provider from accessing by normal apps -->
+        <activity
+            android:name=".activity.video.VideoWallpaperActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".activity.video.wallpaper.VideoLiveWallpaperService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:process=":wallpaper">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
+
+        <activity
+            android:name=".activity.site.SitesShareActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.aliyun.alivc_license.licensekey"
+            android:value="6POa6gjqWTeP54JFhb3a9cb50c1cd428e866c36ea7c41757a" />
+        <meta-data
+            android:name="com.aliyun.alivc_license.licensefile"
+            android:value="assets/player_license.crt" />
+
+        <activity
+            android:name=".activity.game.McServerInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.HideImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.vivo.ThemeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.CreateColorImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.hide.HideFunctionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.news.TopHotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.audio.FormatPcmActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.game.SearchGamesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.AvatarsPreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.AvatarsCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.AlertPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.SetUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.movies.MovieDownloadActivity"
+            android:exported="false"
+            android:label="影视下载任务列表" />
+        <activity
+            android:name=".activity.movies.settings.MoviesSettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_movies_settings" />
+        <activity
+            android:name=".activity.user.UserCenterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.ColorEnhanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.ImagesColoringActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.normal.CowFileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.normal.ChinaMobileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.app.SearchFunctionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.AiPaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.PoemSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.movies.AlbumPreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.movies.SubscribeEditActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.movies.SubscribeListActivity"
+            android:exported="false"
+            android:label="@string/title_activity_subscribe_list"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.movies.SubscribeManageActivity"
+            android:exported="true"
+            android:label="@string/subscribe_manage">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="content" />
+                <data android:host="*" />
+                <data android:pathPattern=".*.vmsub" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="file" />
+                <data android:host="*" />
+                <data android:pathPattern=".*.vmsub" />
+            </intent-filter>
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT"
+                    tools:ignore="AppLinkUrlError" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+                <data android:pathPattern=".*.vmsub" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.movies.user.MovieRegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <service
+            android:name="com.lzx.starrysky.service.MusicService"
+            android:enabled="true"
+            android:exported="false"
+            tools:ignore="ExportedService" /> <!-- 修复缓存中把网断了的崩溃 -->
+        <service
+            android:name="com.google.android.exoplayer2.scheduler.PlatformScheduler$PlatformSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <activity
+            android:name=".activity.movies.SearchMovieActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.movies.VideoPlayerActivity"
+            android:configChanges="orientation|colorMode|screenSize|smallestScreenSize|screenLayout|keyboard|keyboardHidden|navigation|uiMode"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/PlayerTheme" />
+        <activity
+            android:name=".activity.movies.MoviesMainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.H264Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.YUVideoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.lockscreen.LockPictureActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.app.log.ViewerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.app.log.LogListActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.audio.FormatAudioActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.FormatVideoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.CrtActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.AspectActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.CompressVideoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.audio.CompressAudioActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.info.AppLocalActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.images.ImageParagraphActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.M3U8Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.MuteVideoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.TOImageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.ContrastActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.TOGifActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.MakeMuteActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.HlsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.BrightActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.video.ReverseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <service android:name="com.android.cast.dlna.dmc.DLNACastService" />
+        <service android:name="com.android.cast.dlna.dmr.DLNARendererService" />
+        <service android:name="com.android.cast.dlna.dms.DLNAContentService" />
+
+        <activity
+            android:name=".activity.audio.DenoiseActivity"
+            android:exported="false"
+            android:label="视频降噪" />
+        <activity
+            android:name=".activity.video.download.M3u8Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.app.PrivacyActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent102038002" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.tencent.login.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                tools:replace="android:resource" />
+        </provider>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.manchuan.tools.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource" />
+        </provider>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.manchuan.tools.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource" />
+        </provider>
+
+        <service android:name="com.android.cast.dlna.dmc.DLNACastService" />
+
+        <activity
+            android:name=".about.AboutActivity"
+            android:exported="false"
+            android:label="关于">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.app.ErrorActivity"
+            android:exported="false"
+            android:label="发生错误">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.life.LocationInquireActivity"
+            android:exported="false"
+            android:label="经纬度查询">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.life.DetailsActivity"
+            android:exported="false" />
+
+        <receiver android:name=".service.SongNotificationReceiver" />
+
+        <activity
+            android:name=".activity.audio.PlaySpeakActivity"
+            android:configChanges="uiMode|smallestScreenSize|screenSize"
+            android:exported="false" />
+        <activity
+            android:name=".activity.game.GamesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.audio.AudioFormatActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="dd40b6199570ce501a597012c2199112" />
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity
+            android:name=".activity.system.MediaScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.system.MIUIShortCutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.system.HDRCheckActivity"
+            android:colorMode="hdr"
+            android:exported="false" />
+        <activity
+            android:name=".activity.system.BackupWordLibrary"
+            android:exported="false" />
+
+        <meta-data
+            android:name="ScopedStorage"
+            android:value="true" />
+
+        <activity
+            android:name=".activity.crypt.HmacMD5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.crypt.DesCrypt"
+            android:exported="false" />
+        <activity
+            android:name=".activity.crypt.AesCrypt"
+            android:exported="false" />
+        <activity
+            android:name=".activity.crypt.HmacSHACrypt"
+            android:exported="false" />
+        <activity
+            android:name=".activity.crypt.SHACrypt"
+            android:exported="false" />
+        <activity
+            android:name=".activity.touch.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.system.FontScale"
+            android:exported="false" />
+        <activity
+            android:name=".activity.site.ServerInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.site.BeianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.life.TelephoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.normal.LanzouActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.video.ShortVideoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.app.WelcomeActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="@string/welcome_use" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:exported="false"
+            android:label="@string/action_settings" />
+        <activity
+            android:name=".activity.life.StepsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_steps"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.game.FullscreenGameActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:exported="false"
+            android:label="@string/title_activity_fullscreen_game"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activity.app.ManageSpaceActivity"
+            android:exported="false"
+            android:label="@string/title_activity_manage_space"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.life.CreatePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.normal.GithubDownloadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.system.CustomModelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.crypt.EncryptMD5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.WallpaperPreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.WallpaperCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.images.PhotoWaterMarkActivity"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.images.PhotoMiaoActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.site.WakeOnLanActivity"
+            android:configChanges="uiMode"
+            android:exported="true" />
+        <activity
+            android:name=".activity.site.PortsScanActivity"
+            android:configChanges="uiMode"
+            android:exported="true" />
+        <activity
+            android:name=".activity.crypt.ThDesActivity"
+            android:configChanges="uiMode"
+            android:exported="true" />
+        <activity
+            android:name=".activity.app.SplashActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.app.MainActivity"
+            android:configChanges="orientation|layoutDirection|fontScale"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="join_insider"
+                    android:pathPattern="/boolean"
+                    android:scheme="flipped" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https" />
+                <data android:host="voyage.fengmuchuan.cn" />
+                <data android:path="/preview_insiders" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.life.RulerActivity"
+            android:configChanges="uiMode"
+            android:exported="true"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.app.AppManagerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.crypt.BaseConvertActivity"
+            android:configChanges="uiMode"
+            android:exported="true" />
+        <activity
+            android:name=".activity.life.TimeActivity"
+            android:configChanges="orientation|screenSize|uiMode|layoutDirection"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.crypt.RC4EDActivity"
+            android:configChanges="uiMode"
+            android:exported="true" />
+        <activity
+            android:name=".activity.normal.QRCodeActivity"
+            android:configChanges="uiMode"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activity.app.AppInformationActivity"
+            android:configChanges="uiMode"
+            android:exported="true" />
+        <activity
+            android:name=".activity.life.HistoryTodayActivity"
+            android:configChanges="uiMode"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.life.MarQueeActivity"
+            android:configChanges="uiMode"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.images.CompressActivity"
+            android:configChanges="uiMode"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.images.PhotoTextActivity"
+            android:configChanges="uiMode"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.images.ImageToUrlActivity"
+            android:configChanges="uiMode"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.images.LowPolyActivity"
+            android:configChanges="uiMode"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.site.WebActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name=".activity.images.BlackGreyPhotoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.life.NoiseMeasurementActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.life.MetalDetectionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.images.ExifEditActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.normal.RanDomColorActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.life.TranslateActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.life.RanDomArticleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.images.PicturePixelActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.site.PingActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activity.normal.SpecialTextActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.normal.FullScreenMarQuee"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="landscape" />
+
+        <receiver
+            android:name="androidx.media.session.MediaButtonReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Material3.Dark.Chuanyis">
+        <!-- Customize your theme here. -->
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/sans</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="pickerColorEditTextColor">@color/textColor</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_14mdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_14mdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_14mdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_14mdp</item>
+        <item name="preferenceTheme">@style/ThemeOverlay.Rikka.Material3.Preference</item>
+        <item name="snackbarStyle">@style/Widget.Material3.Snackbar</item>
+        <item name="extendedFloatingActionButtonStyle">
+            @style/Widget.Material3.ExtendedFloatingActionButton.Icon.Primary
+        </item>
+    </style>
+
+    <style name="PlayerTheme" parent="Theme.Material3.Dark.Chuanyis">
+        <!-- Customize your theme here. -->
+        <item name="android:forceDarkAllowed" tools:ignore="NewApi">false</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:windowActionBar" tools:ignore="NewApi">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:textStyle">normal</item>
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
+        <item name="pickerColorEditTextColor">@color/textColor</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_14mdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_14mdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_14mdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_14mdp</item>
+        <item name="preferenceTheme">@style/ThemeOverlay.Rikka.Material3.Preference</item>
+        <item name="snackbarStyle">@style/Widget.Material3.Snackbar</item>
+        <item name="extendedFloatingActionButtonStyle">
+            @style/Widget.Material3.ExtendedFloatingActionButton.Icon.Primary
+        </item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.Material3.Dark" />
+
+</resources>

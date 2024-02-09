@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">設置</string>
+    <string name="no_root">无Root權限</string>
+    <string name="menu_home">首頁</string>
+    <string name="menu_gallery">功能</string>
+    <string name="no_install_qq">未安裝QQ</string>
+    <string name="search_movies">搜索影片名/演員/導演</string>
+    <string name="join_us">加入我们</string>
+    <string name="start_service">啟動服務</string>
+    <string name="service_status">服務狀態</string>
+    <string name="please_connect_same_wifi">請在已經連接了同一Wi-Fi/局域網的電腦或其他設備上訪問以下地址，下載本機文件。</string>
+</resources>

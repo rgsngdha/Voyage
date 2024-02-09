@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/add_site"
+        android:title="添加影视站" />
+    <item
+        android:id="@+id/add_live"
+        android:title="添加直播" />
+    <item
+        android:id="@+id/add_collection"
+        android:title="添加采集站" />
+    <item
+        android:id="@+id/add_video_tag"
+        android:title="添加解析关键词" />
+    <item
+        android:id="@+id/add_video_parser"
+        android:title="添加解析接口" />
+
+</menu>

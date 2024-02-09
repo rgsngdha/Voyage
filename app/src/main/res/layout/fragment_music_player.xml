@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.audio.fragments.MusicPlayerFragment">
+
+        <com.manchuan.tools.view.FlowingLightView
+            android:id="@+id/flow_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rootLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/titleLay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:animateLayoutChanges="true"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <com.drake.engine.widget.MarqueeTextView
+                                android:id="@+id/title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_20mdp"
+                                android:layout_marginTop="@dimen/_20mdp"
+                                android:ellipsize="marquee"
+                                android:text="暂无音乐"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                android:textColor="@color/editTextColor"
+                                android:textStyle="bold"
+                                android:transitionName="title"
+                                app:fontFamily="@font/sans" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/sub"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_20mdp"
+                                android:layout_marginEnd="@dimen/_20mdp"
+                                android:text="作者"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+                                android:textColor="@color/hui"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/mi_play"
+                            android:layout_width="@dimen/_56mdp"
+                            android:layout_height="@dimen/_56mdp"
+                            android:backgroundTint="#00FFFFFF"
+                            android:padding="@dimen/_12mdp"
+                            app:srcCompat="@drawable/miplay_select_device"
+                            app:tint="@color/black" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <LinearLayout
+                    android:id="@+id/play_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cover"
+                        android:layout_width="@dimen/_220mdp"
+                        android:layout_height="@dimen/_220mdp"
+                        android:layout_marginTop="@dimen/_56mdp"
+                        android:cropToPadding="false"
+                        android:elevation="@dimen/_12mdp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearance="@style/RoundedStyle"
+                        app:srcCompat="@drawable/umeng_socialize_share_music" />
+
+                    <me.qinc.lib.edgetranslucent.EdgeTransparentView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_18mdp"
+                        android:layout_marginBottom="@dimen/_12mdp"
+                        app:edge_position="top|bottom"
+                        app:edge_width="@dimen/_8mdp">
+
+                        <com.dirror.lyricviewx.LyricViewX
+                            android:id="@+id/lyric"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_32mdp"
+                            android:layout_marginEnd="@dimen/_32mdp"
+                            app:lrcCurrentTextColor="?colorPrimaryInverse"
+                            app:lrcLabel="暂无歌词"
+                            app:lrcNormalTextColor="?colorPrimary"
+                            app:lrcTextGravity="center"
+                            app:lrcTextSize="15sp"
+                            app:lrcTranslateTextScaleValue="0.8" />
+
+                    </me.qinc.lib.edgetranslucent.EdgeTransparentView>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_36mdp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingEnd="@dimen/_16mdp"
+                        android:paddingStart="@dimen/_16mdp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/currentTime"
+                            android:layout_width="wrap_content"
+                            app:fontFamily="monospace"
+                            android:layout_height="wrap_content"
+                            android:text="00:00" />
+
+                        <com.litao.slider.NiftySlider
+                            android:id="@+id/seekBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:layout_marginEnd="@dimen/_12mdp"
+                            android:layout_weight="1"
+                            android:value="0"
+                            android:valueFrom="0"
+                            app:enableDrawHalo="false"
+                            app:thumbRadius="3dp"
+                            app:thumbWithinTrackBounds="true"
+                            app:trackHeight="3dp"
+                            app:isConsecutiveProgress="true"
+                            app:trackInnerHPadding="0dp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/totalTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00:00"
+                            app:fontFamily="monospace"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_64mdp"
+                        android:layout_marginStart="@dimen/dp_26"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:layout_marginEnd="@dimen/dp_26"
+                        android:gravity="center">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/previous"
+                            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_36mdp"
+                            android:layout_marginEnd="@dimen/_8mdp"
+                            app:icon="@drawable/ic_baseline_skip_previous_24" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:id="@+id/play"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/play"
+                                android:src="@drawable/ic_baseline_play_arrow_24"
+                                app:elevation="0dp"
+                                tools:ignore="SpeakableTextPresentCheck" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/next"
+                            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_36mdp"
+                            android:layout_marginStart="@dimen/_8mdp"
+                            app:icon="@drawable/ic_baseline_skip_next_24" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/moreAction"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_56"
+                        android:layout_marginTop="@dimen/dp_8">
+
+                        <ImageView
+                            android:id="@+id/shuffle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/dp_16"
+                            app:srcCompat="@drawable/ic_baseline_shuffle_24" />
+
+                        <ImageView
+                            android:id="@+id/snooze"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/dp_16"
+                            app:srcCompat="@drawable/ic_baseline_snooze_24" />
+
+                        <ImageView
+                            android:id="@+id/playList"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/dp_16"
+                            app:srcCompat="@drawable/ic_baseline_playlist_play_24" />
+
+                        <ImageView
+                            android:id="@+id/speed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="@dimen/dp_16"
+                            app:srcCompat="@drawable/ic_baseline_speed_24" />
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+</layout>

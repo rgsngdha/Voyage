@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@id/appbar"
+        style="@style/Widget.Material3.AppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="false">
+
+        <com.google.android.material.appbar.SubtitleCollapsingToolbarLayout
+            android:id="@id/ctl"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:collapsedSubtitleTextAppearance="@style/TextAppearance.SubTitle.YuanHang2"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.Title.YuanHang"
+            app:expandedTitleMargin="@dimen/dp_20"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap|snapMargins"
+            app:titleCollapseMode="scale"
+            app:toolbarId="@id/toolbar">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@id/toolbar"
+                style="@style/Widget.Material3.Toolbar.Surface"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@android:color/transparent"
+                android:clipToPadding="false"
+                android:elevation="0dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/dp_8"
+                app:buttonGravity="center_vertical"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.SubtitleCollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/translate_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:fillViewport="true"
+            tools:ignore="ScrollViewCount">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8mdp"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_16mdp"
+                    android:paddingEnd="@dimen/_16mdp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/source_language"
+                        style="@style/TextAppearance.Material3.TitleLarge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:layout_weight="1"
+                        android:text="自动检测" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/source_speak"
+                        style="?materialIconButtonFilledTonalStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/ic_round_volume_up_24" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/source_copy"
+                        style="?materialIconButtonFilledTonalStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_6mdp"
+                        app:icon="@drawable/ic_content_copy" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16mdp"
+                    android:layout_marginTop="@dimen/_4mdp"
+                    android:layout_marginEnd="@dimen/_16mdp"
+                    android:background="@color/transparent"
+                    android:gravity="top"
+                    android:hint="输入文字"
+                    android:importantForAutofill="no"
+                    android:maxLines="68"
+                    android:minLines="8"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="@dimen/sp_18"
+                    tools:ignore="TextContrastCheck" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/source_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16mdp"
+                        android:layout_marginBottom="@dimen/_16mdp"
+                        android:alpha="0.4"
+                        app:dividerColor="?colorAccent"
+                        app:dividerInsetEnd="@dimen/_32mdp"
+                        app:dividerInsetStart="@dimen/_32mdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_16mdp"
+                        android:paddingEnd="@dimen/_16mdp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/target_language"
+                            style="@style/TextAppearance.Material3.TitleLarge"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_8mdp"
+                            android:layout_weight="1"
+                            android:text="简体中文" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/target_speak"
+                            style="?materialIconButtonFilledTonalStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:icon="@drawable/ic_round_volume_up_24" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/target_copy"
+                            style="?materialIconButtonFilledTonalStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_6mdp"
+                            app:icon="@drawable/ic_content_copy" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/result_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16mdp"
+                        android:layout_marginTop="@dimen/_4mdp"
+                        android:layout_marginEnd="@dimen/_16mdp"
+                        android:ellipsize="end"
+                        android:importantForAutofill="no"
+                        android:maxLines="68"
+                        android:minLines="8"
+                        android:hint="请先翻译文字..."
+                        android:textColor="?colorPrimary"
+                        android:textIsSelectable="true"
+                        android:textSize="@dimen/sp_18"
+                        app:fontFamily="@font/sans"
+                        tools:ignore="TextContrastCheck" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/translate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/_24mdp"
+        android:layout_marginBottom="@dimen/_28mdp"
+        android:text="翻译"
+        app:icon="@drawable/twotone_g_translate_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_8mdp"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

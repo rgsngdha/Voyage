@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_8"
+    android:layout_marginEnd="@dimen/dp_8"
+    android:gravity="center|start"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/itemCompactCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_2mdp"
+        app:cardCornerRadius="@dimen/_8mdp"
+        app:strokeWidth="0dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_108mdp"
+            android:layout_height="@dimen/_160mdp"
+            android:scaleType="centerCrop"
+            android:transitionName="mediaCover"
+            app:shapeAppearanceOverlay="@style/RoundedStyle.Two"
+            tools:ignore="ContentDescription,ImageContrastCheck"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <LinearLayout
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/item_score"
+            android:backgroundTint="#BFFFFFFF"
+            android:backgroundTintMode="multiply"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_8mdp"
+            android:paddingEnd="@dimen/_6mdp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2mdp"
+                android:layout_marginTop="@dimen/_2mdp"
+                android:layout_marginEnd="@dimen/_2mdp"
+                android:layout_marginBottom="@dimen/_1mdp"
+                android:fontFamily="@font/google_sans_bold"
+                android:maxEms="6"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                tools:ignore="TextContrastCheck"
+                tools:text="0.0" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6mdp"
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginEnd="@dimen/dp_6"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:ellipsize="middle"
+        android:maxLines="1"
+        android:text="影片名"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="@dimen/sp_13"
+        android:textStyle="bold"
+        app:fontFamily="@font/sans" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6mdp"
+        android:layout_marginTop="@dimen/dp_1"
+        android:layout_marginEnd="@dimen/dp_6"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="介绍"
+        android:textSize="@dimen/sp_10"
+        android:textStyle="bold" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

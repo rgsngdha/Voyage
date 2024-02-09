@@ -1,0 +1,22 @@
+ext {
+    kotlin_coroutines_version = '1.7.3'
+
+    target_sdk = 33
+
+    jettyVersion = "8.1.22.v20160922"
+    androidx_annotation_version = '1.7.0-alpha02'
+    androidx_annotation_experimental_version = "+"
+    androidx_appcompat_version = '1.6.1'
+    androidx_core_version = '1.12.0-alpha04'
+    androidx_fragment_version = '1.5.7'
+    androidx_interpolator_version = "+"
+    androidx_recyclerview_version = '1.2.0'
+    androidx_swiperefreshlayout_version = "+"
+    androidx_preference_version = '1.2.0'
+
+    rikka_annotation_version = "+"
+    rikka_core_version = "+"
+    rikka_html_version = "+"
+    rikka_preference_multiprocess_version = "+"
+    rikka_widget_switcherbar_version = "+"
+}

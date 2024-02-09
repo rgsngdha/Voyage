@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="m"
+            type="com.manchuan.tools.activity.movies.SourcesCount" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/chip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:checked="@{Boolean.valueOf(m.checked)}"
+        app:cardBackgroundColor="?colorSurfaceContainer"
+        app:checkedIcon="@drawable/transparent"
+        app:contentPadding="@dimen/_6mdp"
+        tools:ignore="NewApi">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/_4mdp"
+            android:text="@{String.valueOf(m.name)}"
+            app:fontFamily="@font/sans" />
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

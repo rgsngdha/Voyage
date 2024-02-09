@@ -1,0 +1,48 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="@dimen/_174mdp"
+    app:cardCornerRadius="0dp"
+    app:contentPaddingBottom="@dimen/_10mdp"
+    app:contentPaddingLeft="@dimen/_18mdp"
+    app:contentPaddingRight="@dimen/_18mdp"
+    app:contentPaddingTop="@dimen/_56mdp"
+    app:strokeWidth="0dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_48mdp"
+            android:layout_height="@dimen/_48mdp"
+            android:layout_marginBottom="@dimen/_12mdp"
+            android:contentDescription="头像"
+            app:shapeAppearance="@style/RoundedStyle"
+            app:srcCompat="@drawable/logo_avatar_anonymous_40dp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/author_name"
+            android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系方式 >"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:visibility="gone"
+            app:fontFamily="@font/sans" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.google.android.material.card.MaterialCardView>

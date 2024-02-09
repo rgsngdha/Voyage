@@ -1,0 +1,56 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        mavenLocal()
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
+        maven { url 'https://oss.sonatype.org/content/repositories/public' }
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url 'https://repository.mulesoft.org/nexus/content/repositories/public/' }
+        maven {
+            url 'https://artifact.bytedance.com/repository/pangle'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "http://lib.gcssloop.com:8081/repository/gcssloop-central/"
+        }
+        maven {
+            url "https://androidx.dev/storage/compose-compiler/repository/"
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenLocal()
+        mavenCentral()
+        //noinspection JcenterRepositoryObsolete
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://jitpack.io' }
+        maven {
+            url "https://androidx.dev/storage/compose-compiler/repository/"
+        }
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'https://oss.sonatype.org/content/repositories/public' }
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/release" }
+        maven {
+            allowInsecureProtocol = true
+            url 'http://4thline.org/m2/'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "http://lib.gcssloop.com:8081/repository/gcssloop-central/"
+        }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
+}
+rootProject.name = "远航工具箱"
+include ':app', ':plugins', ':longan', 'm3u8downloader'

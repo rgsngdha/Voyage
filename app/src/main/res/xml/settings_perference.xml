@@ -1,0 +1,110 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="常规">
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_primary_colorize_24"
+            app:key="dynamicColors"
+            app:summary="适配 Android 12 新特性"
+            app:title="动态取色" />
+
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="false"
+            app:key="userInput"
+            app:summary="控制主页面是否可以划动"
+            app:title="页面划动" />
+
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="false"
+            app:icon="@drawable/primary_outline_blur_on_24"
+            app:key="dialogBlur"
+            app:summary="启用/关闭部对话框背景模糊"
+            app:title="对话框模糊" />
+
+
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="follow_system"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:icon="@drawable/ic_primary_palette_24"
+            app:key="theme_style"
+            app:title="深色模式"
+            app:useSimpleSummaryProvider="false" />
+
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="main"
+            app:entries="@array/default_launch_entries"
+            app:entryValues="@array/default_launch_values"
+            app:icon="@drawable/outline_open_in_new_24"
+            app:key="default_launch"
+            app:title="默认启动"
+            app:useSimpleSummaryProvider="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="存储">
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_primary_book_24"
+            app:key="small_speak_cache"
+            app:title="小说缓存" />
+
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="enabled"
+            app:entries="@array/glide_entries"
+            app:entryValues="@array/glide_values"
+            app:icon="@drawable/ic_primary_image_24"
+            app:key="glide_cache"
+            app:title="图片缓存"
+            app:useSimpleSummaryProvider="false" />
+
+        <Preference
+            app:fragment="com.manchuan.tools.fragment.preferences.StorageFragment"
+            app:icon="@drawable/ic_primary_storage_24"
+            app:key="clear_cache"
+            app:summary="管理本软件已使用的空间"
+            app:title="管理空间" />
+
+        <Preference
+            app:icon="@drawable/ic_baseline_bug_report_24"
+            app:key="bug_list"
+            app:summary="查看软件所产生的崩溃日志"
+            app:title="崩溃日志">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="com.manchuan.tools.activity.app.log.LogListActivity"
+                android:targetPackage="com.manchuan.tools" />
+
+        </Preference>
+    </PreferenceCategory>
+
+
+    <PreferenceCategory app:title="隐私与协议">
+
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_primary_analytics_24"
+            app:key="none_analytic"
+            app:summary="在您的使用本应用过程中，该项功能会自动收集您的信息，如国家、语言、运营商、手机型号、信号，然后上传至Microsoft App Center服务器，如果您觉得这侵犯了您的隐私，可以关闭这项功能。"
+            app:title="使用 App Center (Microsoft) 统计">
+
+        </rikka.material.preference.MaterialSwitchPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="服务">
+
+        <Preference
+            app:key="shizuku"
+            app:summary="未授权"
+            app:title="Shizuku 状态" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

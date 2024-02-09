@@ -1,0 +1,313 @@
+<resources>
+    <!-- Reply Preference -->
+
+    <string-array name="theme_entries">
+        <item>Follow System</item>
+        <item>Always Off</item>
+        <item>Always On</item>
+    </string-array>
+
+    <string-array name="animation_types_entries">
+        <item>匀速</item>
+        <item>减速</item>
+        <item>加速减速</item>
+        <item>阶段弹球</item>
+        <item>加速</item>
+        <item>前后甩</item>
+    </string-array>
+
+    <string-array name="default_launch_values">
+        <item>main</item>
+        <item>movie</item>
+        <item>media_player</item>
+    </string-array>
+
+    <string-array name="default_launch_entries">
+        <item>主页面</item>
+        <item>电影大全</item>
+        <item>音乐播放器</item>
+    </string-array>
+
+    <string-array name="animation_types_values">
+        <item>linear</item>
+        <item>reduce</item>
+        <item>speed_down</item>
+        <item>stage</item>
+        <item>speed</item>
+        <item>back_forth</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>follow_system</item>
+        <item>day</item>
+        <item>night</item>
+    </string-array>
+
+    <string-array name="glide_entries">
+        <item>Enabled</item>
+        <item>Disabled</item>
+    </string-array>
+
+    <string-array name="glide_values">
+        <item>enabled</item>
+        <item>disabled</item>
+    </string-array>
+
+    <string-array name="text_entries">
+        <item>每日一次</item>
+        <item>手动刷新</item>
+        <item>隐藏</item>
+    </string-array>
+
+    <string-array name="text_values">
+        <item>day_one</item>
+        <item>self</item>
+        <item>gone</item>
+    </string-array>
+
+    <string-array name="language">
+        <item>Detect Language</item>
+        <item>Albanian</item>
+        <item>Arabic</item>
+        <item>Amharic</item>
+        <item>Azerbaijani</item>
+        <item>Irish</item>
+        <item>Estonian</item>
+        <item>Basque</item>
+        <item>Belarusian</item>
+        <item>Bulgarian</item>
+        <item>Icelandic</item>
+        <item>Polish</item>
+        <item>Bosnian</item>
+        <item>Farsi</item>
+        <item>Boolean (Afrikaans)</item>
+        <item>Danish</item>
+        <item>German</item>
+        <item>Russian</item>
+        <item>French</item>
+        <item>Filipino</item>
+        <item>Finnish</item>
+        <item>Frisian</item>
+        <item>Cambodian</item>
+        <item>Georgian</item>
+        <item>Gujarati</item>
+        <item>Kazakh</item>
+        <item>Haitian Creole</item>
+        <item>Korean</item>
+        <item>Hausa</item>
+        <item>Dutch</item>
+        <item>Kyrgyz</item>
+        <item>Galician</item>
+        <item>Catalan</item>
+        <item>Czech</item>
+        <item>Kannada</item>
+        <item>Corsican</item>
+        <item>Croatian</item>
+        <item>Kurdish</item>
+        <item>Latin</item>
+        <item>Latvian</item>
+        <item>LaoLanguage</item>
+        <item>Lithuanian</item>
+        <item>Luxembourgish</item>
+        <item>Romanian</item>
+        <item>Malagasy</item>
+        <item>Maltese</item>
+        <item>Marathi</item>
+        <item>Malayalam</item>
+        <item>Malayan</item>
+        <item>Macedonian</item>
+        <item>Maori</item>
+        <item>Mongolian</item>
+        <item>Bengali</item>
+        <item>Burman</item>
+        <item>Hmong</item>
+        <item>Afrikaans Xhosa</item>
+        <item>Zulu, South Africa</item>
+        <item>Nepali</item>
+        <item>Norwegian</item>
+        <item>Punjabi</item>
+        <item>Portuguese</item>
+        <item>Pashto</item>
+        <item>Chichewa</item>
+        <item>Japanese</item>
+        <item>Swedish</item>
+        <item>Samoan</item>
+        <item>Serbian</item>
+        <item>Sesotho</item>
+        <item>Sinhala</item>
+        <item>Esperanto</item>
+        <item>Slovak language</item>
+        <item>Slovenian</item>
+        <item>Kiswahili language</item>
+        <item>Scottish Gaelic</item>
+        <item>Cebuano</item>
+        <item>Somali</item>
+        <item>Tadzhik language</item>
+        <item>Telugu</item>
+        <item>Tamil language</item>
+        <item>Thai</item>
+        <item>Turkish language</item>
+        <item>Welsh</item>
+        <item>Urdu language</item>
+        <item>Ukrainian</item>
+        <item>Uzbek</item>
+        <item>Spanish language</item>
+        <item>Hebrew language</item>
+        <item>Greek</item>
+        <item>Hawaiian</item>
+        <item>Sindhi</item>
+        <item>Hungarian language</item>
+        <item>Shona</item>
+        <item>Armenian</item>
+        <item>Igbo</item>
+        <item>Italian language</item>
+        <item>Yiddish</item>
+        <item>Hindi</item>
+        <item>Indonesian Sundanese</item>
+        <item>Indonesian</item>
+        <item>Javanese</item>
+        <item>English</item>
+        <item>Yoruba</item>
+        <item>Vietnamese language</item>
+        <item>Traditional Chinese</item>
+        <item>Simplified Chinese</item>
+    </string-array>
+    <string-array name="language_id">
+        <item>auto</item>
+        <item>sq</item>
+        <item>ar</item>
+        <item>am</item>
+        <item>az</item>
+        <item>ga</item>
+        <item>et</item>
+        <item>eu</item>
+        <item>be</item>
+        <item>bg</item>
+        <item>is</item>
+        <item>pl</item>
+        <item>bs</item>
+        <item>fa</item>
+        <item>af</item>
+        <item>da</item>
+        <item>de</item>
+        <item>ru</item>
+        <item>fr</item>
+        <item>tl</item>
+        <item>fi</item>
+        <item>fy</item>
+        <item>km</item>
+        <item>ka</item>
+        <item>gu</item>
+        <item>kk</item>
+        <item>ht</item>
+        <item>ko</item>
+        <item>ha</item>
+        <item>nl</item>
+        <item>ky</item>
+        <item>gl</item>
+        <item>ca</item>
+        <item>cs</item>
+        <item>kn</item>
+        <item>co</item>
+        <item>hr</item>
+        <item>ku</item>
+        <item>la</item>
+        <item>lv</item>
+        <item>lo</item>
+        <item>lt</item>
+        <item>lb</item>
+        <item>ro</item>
+        <item>mg</item>
+        <item>mt</item>
+        <item>mr</item>
+        <item>ml</item>
+        <item>ms</item>
+        <item>mk</item>
+        <item>mi</item>
+        <item>mn</item>
+        <item>bn</item>
+        <item>my</item>
+        <item>hmn</item>
+        <item>xh</item>
+        <item>zu</item>
+        <item>ne</item>
+        <item>no</item>
+        <item>pa</item>
+        <item>pt</item>
+        <item>ps</item>
+        <item>ny</item>
+        <item>ja</item>
+        <item>sv</item>
+        <item>sm</item>
+        <item>sr</item>
+        <item>st</item>
+        <item>si</item>
+        <item>eo</item>
+        <item>sk</item>
+        <item>sl</item>
+        <item>sw</item>
+        <item>gd</item>
+        <item>ceb</item>
+        <item>so</item>
+        <item>tg</item>
+        <item>te</item>
+        <item>ta</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>cy</item>
+        <item>ur</item>
+        <item>uk</item>
+        <item>uz</item>
+        <item>es</item>
+        <item>iw</item>
+        <item>el</item>
+        <item>haw</item>
+        <item>sd</item>
+        <item>hu</item>
+        <item>sn</item>
+        <item>hy</item>
+        <item>ig</item>
+        <item>it</item>
+        <item>yi</item>
+        <item>hi</item>
+        <item>su</item>
+        <item>id</item>
+        <item>jw</item>
+        <item>en</item>
+        <item>yo</item>
+        <item>vi</item>
+        <item>zh-TW</item>
+        <item>zh-CN</item>
+    </string-array>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <string-array name="video_hdr_entries">
+        <item>智能</item>
+        <item>总是开启</item>
+    </string-array>
+
+    <string-array name="video_hdr_values">
+        <item>auto</item>
+        <item>always</item>
+    </string-array>
+
+    <string-array name="video_color_mode_entries">
+        <item>HDR</item>
+        <item>Wide Color Gamut</item>
+    </string-array>
+
+    <string-array name="video_color_mode_values">
+        <item>hdr</item>
+        <item>wide_color</item>
+    </string-array>
+
+</resources>

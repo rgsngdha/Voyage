@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/set_wallpaper"
+        android:title="设置为壁纸"
+        android:showAsAction="ifRoom"
+        android:iconTintMode="src_in"
+        android:iconTint="@color/white"
+        android:icon="@drawable/ic_outline_image_24"/>
+
+    <item
+        android:id="@+id/save_image"
+        android:title="保存图片"
+        android:showAsAction="ifRoom"
+        android:iconTintMode="src_in"
+        android:iconTint="@color/white"
+        android:icon="@drawable/ic_baseline_save_alt_24"/>
+
+</menu>

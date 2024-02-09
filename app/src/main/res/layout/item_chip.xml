@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="m"
+            type="com.manchuan.tools.fragment.model.FunctionModel" />
+
+    </data>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/item"
+        style="@style/Widget.Material3.Chip.Suggestion.Elevated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2mdp"
+        app:chipCornerRadius="@dimen/_10mdp"
+        android:layout_marginEnd="@dimen/_8mdp"
+        android:layout_marginBottom="@dimen/_6mdp"
+        app:chipIconEnabled="false"
+        app:chipBackgroundColor="?attr/colorSurfaceContainerLow"
+        android:text="@{m.title}"
+        app:ensureMinTouchTargetSize="false"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</layout>

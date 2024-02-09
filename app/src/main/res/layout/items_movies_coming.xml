@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie"
+    android:layout_width="@dimen/_114mdp"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/_14mdp"
+    android:layout_marginEnd="@dimen/_4mdp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/_8mdp"
+    app:strokeWidth="0dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:transitionName="mediaCover"
+        tools:ignore="ContentDescription,ImageContrastCheck"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/linear_gradient_black"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="@dimen/_6mdp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8mdp"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_marginEnd="@dimen/_8mdp"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:ellipsize="middle"
+            android:maxLines="1"
+            android:text="影片名"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:fontFamily="@font/sans" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8mdp"
+            android:layout_marginTop="@dimen/_2mdp"
+            android:layout_marginEnd="@dimen/_8mdp"
+            android:layout_marginBottom="@dimen/_8mdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="介绍"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_10"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

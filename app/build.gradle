@@ -1,0 +1,614 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+    id 'com.google.devtools.ksp' version '1.9.22-1.0.16'
+    id('dev.rikka.tools.materialthemebuilder')
+    id 'com.google.gms.google-services'
+}
+
+static def getVersionName() {
+    def name = "7.0.7"
+    return name
+}
+
+def publishDate = "20240208"
+def dbVersion = "1201"
+
+static String getBuildTime() {
+    Date date = new Date();
+    //中国用的是东八区时间，数值上是在UTC时间上加8
+    String dateStr = "\"" + date.format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("GMT+08:00")) + "\""
+    //String dateStr = "\"" + date.format("yyyy-MM-dd HH:mm:ss") + "\"";
+    return dateStr
+}
+
+def getVersionCode() {// 获取版本号
+    def versionFile = file('version.properties')// 读取第一步新建的文件
+    if (versionFile.canRead()) {// 判断文件读取异常
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        def versionCode = versionProps['VERSION_CODE'].toInteger()// 读取文件里面的版本号
+        def runTasks = gradle.startParameter.taskNames
+        if (':app:assembleRelease' in runTasks || ':app:packageRelease' in runTasks || ':app:assembleProfessionalRelease' in runTasks || ':app:assembleNormalRelease' in runTasks) {
+            // 版本号自增之后再写入文件（此处是关键，版本号自增+1）
+            versionProps['VERSION_CODE'] = (++versionCode).toString()
+            versionProps.store(versionFile.newWriter(), null)
+        }
+        return versionCode // 返回自增之后的版本号
+    }
+//    else {
+//        throw new GradleException("Could not find version.properties!")
+//    }
+}
+
+def versionCodeNew = getVersionCode()
+def versionNameNew = getVersionName()
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\pedra\\AndroidStudioProjects\\Voyage\\app\\JiaCheng.jks')
+            storePassword 'jiacheng20050619'
+            keyPassword 'jiacheng20050619'
+            keyAlias 'JiaCheng'
+        }
+        release {
+            storeFile file('C:\\Users\\pedra\\AndroidStudioProjects\\Voyage\\app\\JiaCheng.jks')
+            storePassword 'jiacheng20050619'
+            keyAlias 'JiaCheng'
+            keyPassword 'jiacheng20050619'
+        }
+    }
+    compileSdk 34
+    ndkVersion '26.0.10404224 rc1'
+    project.archivesBaseName = "远航工具箱"
+    defaultConfig {
+        applicationId "com.manchuan.tools"
+        minSdk 26
+        targetSdk 33
+        //noinspection OldTargetApi
+        renderscriptSupportModeEnabled true
+        versionCode versionCodeNew
+        versionName versionNameNew
+        buildConfigField("String", "BUILD_TIME", getBuildTime())
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 支持的SO库架构
+            //noinspection ChromeOsAbiSupport
+            abiFilters 'arm64-v8a', 'armeabi-v7a'
+        }
+        signingConfig signingConfigs.release
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+                arg("room.incremental", "true")
+            }
+        }
+    }
+    applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
+            def abi = baseName.replace("normal-", "").replace("professional-", "").replace("dev-", "").replace("-release", "").replace("-debug", "")
+            def pak = ""
+            if (abi == "universal") {
+                pak = "-全包"
+            } else if (abi == "armeabi") {
+                pak = "-ARM_32位"
+            } else if (abi == "arm64-v8a") {
+                pak = "-64位"
+            } else if (abi == "armeabi-v7a") {
+                pak = "-ARM_V7_32位"
+            } else if (abi == "x86_64") {
+                pak = "-X86_64位"
+            }
+            def fileName = project.archivesBaseName + "_V" + versionNameNew + "_" + publishDate + "_C" + versionCodeNew + "_db" + dbVersion + pak + ".APK"
+            outputFileName = fileName
+        }
+
+        sourceSets {
+            def name = variant.name
+            named(name) {  //告知IDE，ksp生成的kotlin代码
+                kotlin.srcDir("build/generated/ksp/$name/kotlin")
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexEnabled true
+            renderscriptDebuggable false
+            renderscriptOptimLevel 7
+        }
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            //noinspection ChromeOsAbiSupport
+            include "armeabi-v7a", "arm64-v8a", "x86_64"
+            universalApk true
+        }
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/INDEX.LIST', 'META-INF/eclipse.inf', 'META-INF/NOTICE', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.txt', 'license/LICENSE', 'license/NOTICE', 'license/README.dom.txt', 'license/LICENSE.dom-documentation.txt', 'license/LICENSE.dom-software.txt', 'META-INF/LICENSE.txt', 'META-INF/beans.xml', 'META-INF/versions/9/previous-compilation-data.bin','META-INF/LICENSE-notice.md']
+        }
+        jniLibs {
+            pickFirsts += ['**/*.so']
+            useLegacyPackaging true
+        }
+    }
+    buildFeatures {
+        buildConfig = true
+        dataBinding = true
+        compose false
+        viewBinding = true
+    }
+    lint {
+        baseline = file("lint-baseline.xml")
+        disable 'GoogleAppIndexingWarning', 'MissingTranslation', 'IconDensities'
+    }
+    namespace 'com.manchuan.tools'
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+
+materialThemeBuilder {
+    themes {
+        chuanyis {
+            primaryColor = "#3F51B5"
+            lightThemeFormat = "Theme.Material3.Light.%s"
+            lightThemeParent = "Theme.Material3.Light.Rikka"
+            darkThemeFormat = "Theme.Material3.Dark.%s"
+            darkThemeParent = "Theme.Material3.Dark.Rikka"
+        }
+    }
+    generatePalette = true
+    generateTextColors = true
+}
+
+dependencies {
+    implementation 'androidx.window:window-java:1.2.0'
+    implementation 'androidx.window:window:1.2.0'
+    implementation('androidx.core:core-ktx:1.12.0')
+    //noinspection GradleDependency
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    //noinspection GradleDependency
+    implementation('androidx.appcompat:appcompat-resources:1.7.0-alpha03')
+    implementation('androidx.viewpager2:viewpager2:1.1.0-beta02')
+    implementation 'androidx.webkit:webkit:1.10.0'
+    implementation('androidx.activity:activity-ktx:1.8.2')
+    //noinspection GradleDynamicVersion
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+    implementation 'androidx.preference:preference-ktx:1.2.1'
+    implementation 'androidx.window:window-extensions:1.0.0-alpha01'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    implementation 'androidx.activity:activity-ktx:1.8.2'
+    implementation 'androidx.activity:activity:1.8.2'
+
+
+    //WorkManager
+    def work_version = "2.9.0"
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+    // optional - Multiprocess support
+    implementation "androidx.work:work-multiprocess:$work_version"
+
+    implementation 'androidx.databinding:viewbinding:8.2.2'
+    implementation 'androidx.core:core-remoteviews:1.0.0'
+    implementation 'androidx.documentfile:documentfile:1.1.0-alpha01'
+    //noinspection GradleDependency
+    implementation('com.google.android.material:material:1.11.0')
+    implementation('androidx.core:core-splashscreen:1.0.1')
+    implementation('androidx.palette:palette-ktx:1.0.0')
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+    implementation 'androidx.browser:browser:1.7.0'
+    implementation('androidx.exifinterface:exifinterface:1.3.7')
+    //noinspection GradleDynamicVersion
+    implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    //noinspection GradleDynamicVersion
+
+
+    implementation 'com.google.devtools.ksp:symbol-processing-api:1.9.22-1.0.17'
+
+    //Libraries
+    implementation fileTree(dir: "libs", include: ["*.aar"])
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(path: ':plugins')
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    //noinspection KaptUsageInsteadOfKsp
+    ksp 'com.github.bumptech.glide:ksp:4.16.0'
+    // Jetty library
+    implementation 'com.white:progressview:1.0.1'
+    implementation 'org.jsoup:jsoup:1.17.2'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+    implementation 'com.blankj:utilcodex:1.31.1'
+    implementation 'com.github.Justson.AgentWeb:agentweb-core:v5.0.6-androidx' // (必选)
+    implementation 'com.github.Justson.AgentWeb:agentweb-filechooser:v5.0.6-androidx' // (可选)
+    implementation 'com.github.Justson:Downloader:v5.0.4-androidx'
+    //noinspection GradleDynamicVersion
+    implementation 'com.google.zxing:core:3.5.3'
+    implementation 'com.github.stealthcopter:AndroidNetworkTools:0.4.5.3'
+    //noinspection GradleDynamicVersion
+    def dialogx_version = "0.0.50.beta8"
+    //noinspection GradleDependency
+    implementation "com.github.kongzue.DialogX:DialogX:$dialogx_version"
+    //noinspection GradleDependency
+    implementation "com.github.kongzue.DialogX:DialogXMaterialYou:$dialogx_version"
+    //noinspection GradleDynamicVersion
+    implementation 'me.zhanghai.android.fastscroll:library:1.3.0'
+    //implementation 'com.github.getActivity:EasyHttp:+'
+    //noinspection GradleDependency
+    implementation(platform('com.squareup.okhttp3:okhttp-bom:4.12.0'))
+    implementation("com.squareup.okhttp3:okhttp")
+    //noinspection GradleDynamicVersion
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    implementation 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
+    implementation 'androidx.annotation:annotation:1.7.1'
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.6'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.6'
+    implementation 'me.zhanghai.android.appiconloader:appiconloader-glide:1.5.0'
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+
+    //爱奇艺Crash
+    implementation 'com.iqiyi.xcrash:xcrash-android-lib:3.1.0'
+
+    //EventBus
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+    implementation 'com.huangyz0918:androidwm:0.2.3'
+    implementation 'com.github.liangjingkanji:Net:3.6.4'
+    //noinspection GradleDynamicVersion
+    //noinspection GradleDependency
+    implementation 'com.microsoft.appcenter:appcenter-analytics:5.0.4'
+    //noinspection GradleDependency
+    implementation 'com.microsoft.appcenter:appcenter-crashes:5.0.4'
+    implementation('net.lingala.zip4j:zip4j:2.11.5')
+    implementation 'com.github.javakam:file.core:3.9.8@aar'      //核心库必选(Core library required)
+    implementation 'com.github.javakam:file.selector:3.9.8@aar'  //文件选择器(File selector)
+    implementation 'com.github.javakam:file.compressor:3.9.8@aar'
+//图片压缩,修改自Luban(Image compression, based on Luban)
+    //完整版引入
+    // screen modules
+    implementation 'com.github.liangjingkanji:Engine:0.0.74'
+    implementation 'com.github.liangjingkanji:StatusBar:2.0.5'
+    //noinspection GradleDynamicVersion
+    implementation "com.zebrostudio.rxlowpoly:rxlowpoly:+"
+    implementation 'top.zibin:Luban-turbo:1.0.0'
+    //noinspection GradleDependency,GradleDynamicVersion
+    implementation 'com.github.liangjingkanji:BRV:1.5.8'
+    //noinspection GradleDynamicVersion
+    implementation 'io.github.scwang90:refresh-header-classics:2.1.0'
+    implementation 'com.github.liangjingkanji:spannable:1.2.7'
+    implementation 'androidx.room:room-runtime:2.6.1'
+    implementation 'androidx.biometric:biometric-ktx:1.2.0-alpha05'
+    implementation 'androidx.room:room-ktx:2.6.1'
+    //noinspection KaptUsageInsteadOfKsp
+    kapt 'androidx.room:room-compiler:2.6.1'
+    implementation 'com.github.liangjingkanji:soft-input-event:1.0.9'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
+    // 协程(版本自定)
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
+    implementation 'com.github.liangjingkanji:Interval:1.0.3'
+
+    //lottie动画
+    implementation 'com.airbnb.android:lottie:6.3.0'
+
+    //步骤控件
+    implementation 'moe.feng:MaterialStepperView:0.2.5'
+
+    //noinspection GradleDependency
+    implementation('com.alibaba:fastjson:2.0.46')
+
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
+
+    //数据存储
+    implementation 'com.github.liangjingkanji:Serialize:3.0.1'
+    //高德定位
+    implementation('com.amap.api:location:6.4.2')
+    //权限申请
+    implementation 'com.github.getActivity:XXPermissions:18.3'
+
+    //事件总线
+    implementation 'com.github.liangjingkanji:Channel:1.1.5'
+
+    //流光溢彩效果
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+
+    //设备标识符
+    implementation 'com.github.gzu-liyujiang:Android_CN_OAID:4.2.5.1'
+
+    def koin_version = '3.5.3'
+    //Koin Android
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
+    implementation "io.insert-koin:koin-androidx-workmanager:$koin_version"
+    implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
+
+    //悬浮窗
+    implementation 'com.github.princekin-f:EasyFloat:2.0.4'
+
+    //验证
+    def ev_version = "1.0.4"
+    implementation "com.wajahatkarim:easyvalidation-core:$ev_version"
+    implementation 'com.wajahatkarim:easyvalidation-toast:1.0.4'
+
+    //Kotlin序列化
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2'
+
+    //底部对话框
+    implementation 'com.maxkeppeler.sheets:core:2.3.1'
+    implementation 'com.maxkeppeler.sheets:input:2.3.1'
+    //noinspection GradleDynamicVersion
+    implementation 'com.maxkeppeler.sheets:time:2.2.9'
+    implementation 'com.maxkeppeler.sheets:color:2.3.1'
+    implementation 'com.maxkeppeler.sheets:info:2.3.1'
+    //noinspection GradleDynamicVersion
+    implementation 'com.maxkeppeler.sheets:options:2.2.9'
+    // fonts
+
+    //GSON
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    //图表
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //广告位
+    implementation 'io.github.youth5201314:banner:2.2.3'
+    //模糊效果
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    implementation 'io.github.hokofly:hoko-blur:1.5.3'
+    //Tooltip
+    //时间安全
+    implementation 'com.github.kizitonwose.time:time-android:1.0.4'
+
+    //HTTP请求拦截
+    debugImplementation 'com.github.chuckerteam.chucker:library:4.0.0'
+    releaseImplementation 'com.github.chuckerteam.chucker:library-no-op:4.0.0'
+
+    //时间线
+    implementation 'com.github.vipulasri:timelineview:1.1.5'
+    implementation 'com.mcxiaoke.koi:core:0.5.5' // useful extensions (only ~100k)
+    implementation 'com.mcxiaoke.koi:async:0.5.5' // async functions (only ~70k)
+    implementation 'com.github.pawegio:KAndroid:0.8.7@aar'
+
+    //Spannable
+
+    //视频下载
+    implementation 'com.github.JeffMony:VideoDownloader:5.8.0'
+    implementation 'com.github.JeffMony:JeffM3U8Lib:1.2.0'
+
+    //吐司
+    implementation 'com.github.getActivity:ToastUtils:10.5'
+
+    //FFmpeg
+    //noinspection GradleDependency
+    implementation 'com.github.AnJoiner:FFmpegCommand:1.2.2'
+    //noinspection GradleDependency
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+    def sora_version = '0.22.2'
+    implementation "io.github.Rosemoe.sora-editor:editor:$sora_version"
+    implementation "io.github.Rosemoe.sora-editor:editor-lsp:$sora_version"
+    implementation "io.github.Rosemoe.sora-editor:language-textmate:$sora_version"
+    //noinspection GradleDependency
+    implementation 'com.anggrayudi:storage:1.5.5'
+    implementation('io.github.hoc081098:FlowExt:0.7.5')
+    //RSS
+    //ImageTouch
+    implementation 'cn.wanghaomiao:JsoupXpath:2.5.3'
+
+
+    //务必去Java官网下载Java 8并安装
+    //noinspection GradlePath
+    //compileOnly files('C:/Program Files/Java/jre1.8.0_361/lib/rt.jar')
+
+    //反射
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    //noinspection GradleDependency,GradleDynamicVersion
+    implementation 'com.github.nowfalsalahudeen:KdroidExt:1.2.0'
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    implementation 'q.rorbin:VerticalTabLayout:1.2.5'
+    implementation 'com.afollestad.assent:core:3.0.2'
+
+    //noinspection GradleDynamicVersion
+    implementation 'com.github.SherlockGougou:BigImageViewPager:androidx-7.2.5'
+
+    implementation 'com.github.angcyo.DslTablayout:TabLayout:3.5.5'
+
+    def vLibsu = "5.0.3"
+    implementation("com.github.topjohnwu.libsu:core:${vLibsu}")
+    implementation("com.github.topjohnwu.libsu:service:${vLibsu}")
+    implementation("com.github.topjohnwu.libsu:nio:${vLibsu}")
+    implementation project(':longan')
+    implementation project(':m3u8downloader')
+    //noinspection GradleDependency
+    implementation('org.json:json:20231013')
+
+    implementation 'dev.rikka.rikkax.appcompat:appcompat:1.6.1'
+    implementation 'dev.rikka.rikkax.compatibility:compatibility:2.0.0'
+    implementation 'dev.rikka.rikkax.core:core-ktx:1.4.1'
+    implementation 'dev.rikka.rikkax.material:material:2.7.0'
+    implementation 'dev.rikka.rikkax.material:material-preference:2.0.0'
+    implementation 'dev.rikka.rikkax.html:html-ktx:1.1.2'
+    implementation 'dev.rikka.rikkax.recyclerview:recyclerview-adapter:1.3.0'
+    implementation 'dev.rikka.rikkax.recyclerview:recyclerview-ktx:1.3.2'
+    implementation 'dev.rikka.rikkax.insets:insets:1.3.0'
+    implementation 'dev.rikka.rikkax.layoutinflater:layoutinflater:1.3.0'
+    implementation 'dev.rikka.rikkax.widget:borderview:1.1.0'
+    implementation 'dev.rikka.rikkax.preference:simplemenu-preference:1.0.3'
+    implementation 'dev.rikka.rikkax.lifecycle:lifecycle-resource-livedata:1.0.1'
+    implementation 'dev.rikka.rikkax.lifecycle:lifecycle-shared-viewmodel:1.0.1'
+    implementation 'dev.rikka.rikkax.lifecycle:lifecycle-viewmodel-lazy:2.0.0'
+    implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
+
+    def exoplayer_version = '2.19.1'
+    implementation "com.google.android.exoplayer:exoplayer:$exoplayer_version"
+    implementation "com.google.android.exoplayer:extension-workmanager:$exoplayer_version"
+    implementation "com.google.android.exoplayer:extension-rtmp:$exoplayer_version"
+    implementation "com.google.android.exoplayer:extension-media2:$exoplayer_version"
+    implementation "com.google.android.exoplayer:extension-okhttp:$exoplayer_version"
+    implementation 'com.github.skydoves:whatif:1.1.4'
+
+    final def markwon_version = '4.6.2'
+    implementation "io.noties.markwon:core:$markwon_version"
+    implementation "io.noties.markwon:editor:$markwon_version"
+    implementation "io.noties.markwon:ext-latex:$markwon_version"
+    implementation "io.noties.markwon:ext-strikethrough:$markwon_version"
+    implementation "io.noties.markwon:ext-tables:$markwon_version"
+    implementation "io.noties.markwon:ext-tasklist:$markwon_version"
+    implementation "io.noties.markwon:html:$markwon_version"
+    implementation "io.noties.markwon:image:$markwon_version"
+    implementation "io.noties.markwon:image-glide:$markwon_version"
+    implementation "io.noties.markwon:inline-parser:$markwon_version"
+    implementation "io.noties.markwon:linkify:$markwon_version"
+    implementation "io.noties.markwon:recycler:$markwon_version"
+    implementation "io.noties.markwon:recycler-table:$markwon_version"
+    implementation "io.noties.markwon:simple-ext:$markwon_version"
+    implementation "io.noties.markwon:syntax-highlight:$markwon_version"
+    implementation "androidx.recyclerview:recyclerview:1.3.2"
+    def utilsVersion = "3.4.8" // or check the latest from jitpack
+
+    //biometrics
+    implementation "com.github.FunkyMuse.KAHelpers:biometrics:$utilsVersion"
+
+    //coroutines
+    implementation "com.github.FunkyMuse.KAHelpers:coroutines:$utilsVersion"
+
+    //the most basic extensions that rely on the basic Android APIs such as context, content providers etc...
+    implementation "com.github.FunkyMuse.KAHelpers:kotlinextensions:$utilsVersion"
+
+    //security
+    implementation "com.github.FunkyMuse.KAHelpers:security:$utilsVersion"
+
+    implementation "com.github.FunkyMuse.KAHelpers:viewpager2:$utilsVersion"
+    implementation "com.github.FunkyMuse.KAHelpers:viewbinding:$utilsVersion"
+    implementation "com.github.FunkyMuse.KAHelpers:view:$utilsVersion"
+    implementation 'com.jinrishici:android-sdk:1.5'
+    //自定义hz频率声音
+    implementation 'com.github.Lokarzz:perfectTune:1.0.5'
+
+    //sketch
+    def sketch_version = '3.3.0'
+    implementation("io.github.panpf.sketch3:sketch:$sketch_version")
+    // 支持下载进度蒙层、列表滑动中暂停加载、节省蜂窝流量、图片类型角标、加载 apk 文件和已安装 app 图标等实用功能
+    implementation("io.github.panpf.sketch3:sketch-extensions:$sketch_version")
+
+    // GifDrawable through Koral's android-gif-drawable library
+    // 通过 koral 的 android-gif-drawable 库的 GifDrawable 实现 gif 播放
+    implementation("io.github.panpf.sketch3:sketch-gif-koral:$sketch_version")
+
+    // Support for OkHttp
+    // 支持 OkHttp
+    implementation("io.github.panpf.sketch3:sketch-okhttp:$sketch_version")
+
+    // SVG images are supported
+    // 支持 SVG 图片
+    implementation("io.github.panpf.sketch3:sketch-svg:$sketch_version")
+    // 通过 wseemann 的 FFmpegMediaMetadataRetriever 库实现读取视频帧
+    implementation("io.github.panpf.sketch3:sketch-video-ffmpeg:$sketch_version")
+
+    // Supports gesture zoom and jumbo sampling
+    // 支持手势缩放以及超大图采样
+    implementation("io.github.panpf.sketch3:sketch-zoom:$sketch_version")
+
+    //Shizuku
+    def shizuku_version = "13.1.0"
+    implementation "dev.rikka.shizuku:api:$shizuku_version"
+
+// Add this line if you want to support Shizuku
+    implementation "dev.rikka.shizuku:provider:$shizuku_version"
+
+    // DevApp - Android 工具类库
+    implementation 'io.github.afkt:DevAppX:2.4.4'
+
+// DevAssist - 封装逻辑代码, 实现多个快捷功能辅助类、以及 Engine 兼容框架等
+    implementation 'io.github.afkt:DevAssist:1.4.0'
+    implementation 'io.github.afkt:DevEngine:1.1.2'
+    implementation 'com.github.zhzc0x:linechart-android:1.0.5'
+
+
+    implementation 'com.github.cy745:LyricViewX:7c92c6d19a'
+
+    // https://github.com/qinci/EdgeTranslucent
+    // https://github.com/cy745/EdgeTranslucent
+    // Undeclared License
+    // 实现边沿渐变透明
+    implementation 'com.github.cy745:EdgeTranslucent:8c25866a14'
+    implementation 'io.github.litao0621:nifty-slider:1.4.6'
+
+    // 自定义交互效果 (非必选功能)
+    implementation 'io.github.litao0621:nifty-slider-effect:1.4.6'
+    implementation 'net.jthink:jaudiotagger:3.0.1'
+
+    //Logcat
+    implementation 'com.github.liangjingkanji:LogCat:1.2.4'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.6.2'  // protobuf序列化
+    implementation("org.apache.ftpserver:ftpserver-core:1.2.0")
+    //noinspection GradleDynamicVersion
+    implementation 'com.github.getActivity:MultiLanguages:8.0'
+    implementation("io.github.ydxlt:okdownloader-android:1.0.0")
+    implementation 'com.github.li-xiaojun:XPopup:2.9.19'
+    implementation('io.github.panpf.zoomimage:zoomimage-view-sketch:1.0.1')
+    // Cling library required
+    implementation 'org.fourthline.cling:cling-core:2.1.1'
+    implementation 'org.fourthline.cling:cling-support:2.1.1'
+    // Servlet
+    //noinspection GradleDependency
+    implementation 'javax.servlet:javax.servlet-api:3.1.0'
+    // Jetty
+    //noinspection GradleDependency
+    implementation 'org.eclipse.jetty:jetty-server:8.1.21.v20160908'
+    //noinspection GradleDependency
+    implementation 'org.eclipse.jetty:jetty-servlet:8.1.21.v20160908'
+    //noinspection GradleDependency
+    implementation 'org.eclipse.jetty:jetty-client:8.1.21.v20160908'
+    // Nano http
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+    implementation("com.github.Commit451:NativeStackBlur:1.0.4")
+    implementation platform('com.google.firebase:firebase-bom:32.7.1')
+    implementation("com.google.firebase:firebase-config-ktx")
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation 'com.umeng.umsdk:common:9.6.7'// 必选
+    implementation 'com.umeng.umsdk:asms:1.8.2'// 必选
+    implementation 'com.github.skydoves:balloon:1.6.4'
+
+    implementation 'me.laoyuyu.aria:core:3.8.16'
+    kapt 'me.laoyuyu.aria:compiler:3.8.16'
+    implementation 'com.github.BzCoder:EasyGlide:2.0.1'
+    implementation 'com.mpatric:mp3agic:0.9.1'
+    implementation('org.jetbrains:markdown:0.6.1')
+    implementation('cn.hutool:hutool-crypto:5.8.25')
+    implementation 'com.github.liangjingkanji:Tooltip:1.2.3'
+    implementation("com.highcapable.betterandroid:ui-component:1.0.4")
+    implementation("com.highcapable.betterandroid:ui-extension:1.0.2")
+    implementation("com.highcapable.betterandroid:system-extension:1.0.1")
+}
+
+configurations.configureEach {
+    exclude group: 'androidx.appcompat', module: 'appcompat'
+    exclude group: 'org.jetbrains', module: 'annotations-java5'
+    exclude group: 'stax', module: 'stax-api'
+    exclude group: 'com.tencent', module: 'mmkv'
+    exclude group: 'top.zibin', module: 'Luban'
+    exclude group: 'org.checkerframework', module: 'checker-qual'
+}

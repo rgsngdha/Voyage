@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.audio.fragments.MusicLyricFragment">
+
+        <com.manchuan.tools.view.FlowingLightView
+            android:id="@+id/flow_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/rootLay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#efFFFFFF"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/titleLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_24mdp"
+                android:paddingTop="@dimen/_24mdp"
+                android:paddingEnd="@dimen/_24mdp"
+                android:paddingBottom="@dimen/_8mdp">
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/cover"
+                    android:layout_width="@dimen/_56mdp"
+                    android:layout_height="@dimen/_56mdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearance="@style/RoundedStyle.Two" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:animateLayoutChanges="true"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.drake.engine.widget.MarqueeTextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20mdp"
+                        android:ellipsize="marquee"
+                        android:text="暂无音乐"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textStyle="bold"
+                        android:transitionName="title"
+                        app:fontFamily="@font/sans" />
+
+                    <com.drake.engine.widget.MarqueeTextView
+                        android:id="@+id/sub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20mdp"
+                        android:ellipsize="marquee"
+                        android:layout_marginEnd="@dimen/_20mdp"
+                        android:text="作者"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/play"
+                    android:layout_marginStart="@dimen/_16mdp"
+                    style="@style/Widget.Material3.Button.IconButton.Filled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:icon="@drawable/ic_baseline_play_arrow_24" />
+
+            </LinearLayout>
+
+
+            <com.litao.slider.NiftySlider
+                android:id="@+id/volume"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32mdp"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:layout_marginBottom="@dimen/_8mdp"
+                android:layout_marginStart="@dimen/_16mdp"
+                android:layout_marginEnd="@dimen/_16mdp"
+                android:value="0.00"
+                android:valueFrom="0.00"
+                android:valueTo="1.00" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <me.qinc.lib.edgetranslucent.EdgeTransparentView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:edge_position="top|bottom"
+                    app:edge_width="@dimen/_48mdp">
+
+                    <com.dirror.lyricviewx.LyricViewX
+                        android:id="@+id/lyric"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:lrcCurrentTextColor="?colorPrimaryInverse"
+                        app:lrcLabel="暂无歌词"
+                        app:lrcNormalTextColor="?colorPrimary"
+                        app:lrcPadding="@dimen/_24mdp"
+                        app:lrcTextGravity="left"
+                        app:lrcTextSize="16sp"
+                        app:lrcTranslateTextScaleValue="0.8" />
+
+                </me.qinc.lib.edgetranslucent.EdgeTransparentView>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/actions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/_24mdp"
+                android:layout_marginEnd="@dimen/_24mdp"
+                android:layout_marginBottom="@dimen/_16mdp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/blur"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tooltipText="开启/关闭歌词模糊"
+                    app:icon="@drawable/outline_blur_on_24" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcome_navigation"
+    app:startDestination="@id/guideWelcomeFragment">
+
+
+    <fragment
+        android:id="@+id/guideWelcomeFragment"
+        android:name="com.manchuan.tools.activity.app.fragments.WelcomeFragment"
+        android:label="欢迎"
+        tools:layout="@layout/fragment_welcome" />
+
+    <fragment
+        android:id="@+id/guidePermissionFragment"
+        android:name="com.manchuan.tools.activity.app.fragments.PermissionFragment"
+        android:label="相关权限申请"
+        tools:layout="@layout/fragment_permission" />
+
+    <fragment
+        android:id="@+id/guidePrivacyFragment"
+        android:name="com.manchuan.tools.activity.app.fragments.PrivacyFragment"
+        android:label="隐私政策与用户协议"
+        tools:layout="@layout/fragment_permission" />
+
+</navigation>

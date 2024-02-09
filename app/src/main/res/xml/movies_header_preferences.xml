@@ -1,0 +1,18 @@
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.PreferenceCategory app:title="常规">
+
+        <androidx.preference.Preference
+            app:fragment="com.manchuan.tools.activity.movies.settings.MoviesSettingsActivity$VideoPlayerSettingsFragment"
+            app:icon="@drawable/material_movies"
+            app:key="messages_header"
+            app:title="视频播放" />
+        <androidx.preference.Preference
+            app:fragment="com.manchuan.tools.activity.movies.settings.MoviesSettingsActivity$SyncFragment"
+            app:icon="@drawable/material_download"
+            app:key="sync_header"
+            app:title="@string/download" />
+
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

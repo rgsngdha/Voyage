@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_270mdp">
+
+                <ImageView
+                    android:id="@+id/file_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/select"
+                    android:layout_width="@dimen/_56mdp"
+                    android:layout_height="@dimen/_56mdp"
+                    android:layout_alignBottom="@id/file_image"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/ripple"
+                    android:padding="@dimen/_18mdp"
+                    android:src="@drawable/ic_image_plus" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ScrollView
+                android:id="@+id/scroll_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/rotate_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:gravity="left|center"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="旋转角度"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/exif_rotate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="未定义"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/time_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="拍摄时间"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="1970:01:01 08:00:00"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/device_brand"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="设备制造商"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_brand"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/device_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="设备型号"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_model"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/flash_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="闪光灯"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_flash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/height"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="图片高度"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_length"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/width"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="图片宽度"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_width"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/latitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="纬度"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_latitude"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/longitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="经度"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_longitude"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/exposure"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="曝光时间"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_exposure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/aperture"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="光圈值"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_aperture"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/iso"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:background="@drawable/ripple"
+                            android:text="ISO感光度"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_iso"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/digitized"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="数字化时间"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/exif_digitized"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/altitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_56mdp"
+                        android:background="@drawable/ripple"
+                        android:gravity="left|center"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16mdp"
+                            android:text="海拔"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/exif_altitude"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12mdp"
+                            android:text="无"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/textColor" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/_16mdp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/save"
+        android:visibility="gone"
+        app:icon="@drawable/ic_content_save_outline"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_16mdp"
+        tools:ignore="ContentDescription,RtlHardcoded,SpeakableTextPresentCheck" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

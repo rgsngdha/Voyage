@@ -1,0 +1,13 @@
+
+{
+  "keepRoot": false,
+  "fixedResName": "_",
+  "mappingFile": "$resource_mapping.txt",
+  "whiteList": [],
+  "compressFilePattern": [
+    "*.png",
+    "*.jpg",
+    "*.jpeg",
+    "*.gif"
+  ]
+}

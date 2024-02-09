@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="?android:attr/windowBackground"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:gravity="center"
+            android:id="@+id/lottie_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/bc_welcome_bg" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:textSize="57sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:id="@+id/guide_welcomeTo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_to"
+            android:maxLines="1"
+            android:layout_marginStart="@dimen/_25mdp"
+            android:layout_marginEnd="@dimen/_25mdp"
+            app:layout_constraintBottom_toTopOf="@id/guide_voyage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/guide_voyage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25mdp"
+            android:layout_marginBottom="@dimen/_32mdp"
+            android:maxLines="1"
+            android:text="@string/app_name"
+            android:textColor="?colorPrimary"
+            android:textSize="57sp"
+            app:layout_constraintBottom_toTopOf="@id/guide_nextSteps"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:textColor="?android:attr/textColorPrimary"
+            android:id="@+id/guide_nextSteps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_35mdp"
+            android:text="@string/coutinue_action"
+            android:layout_marginStart="@dimen/_25mdp"
+            app:layout_constraintBottom_toTopOf="@id/guide_permission_icon"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/guide_permission_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="@dimen/_25mdp"
+            android:src="@drawable/twotone_shield_24"
+            android:layout_marginStart="@dimen/_25mdp"
+            app:layout_constraintBottom_toTopOf="@id/guide_data_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="?colorPrimary" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:textSize="20sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:id="@+id/guide_permission_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/get_permission"
+            android:layout_marginStart="@dimen/_18mdp"
+            android:layout_marginEnd="@dimen/_18mdp"
+            app:layout_constraintBottom_toBottomOf="@id/guide_permission_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide_permission_icon"
+            app:layout_constraintTop_toTopOf="@id/guide_permission_icon" />
+
+        <ImageView
+            android:id="@+id/guide_data_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="@dimen/_55mdp"
+            android:src="@drawable/twotone_book_24"
+            android:layout_marginStart="@dimen/_25mdp"
+            app:layout_constraintBottom_toTopOf="@id/guide_getStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="?colorPrimary" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/guide_data_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_18mdp"
+            android:layout_marginEnd="@dimen/_18mdp"
+            android:text="@string/read_write_data_store"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/guide_data_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide_data_icon"
+            app:layout_constraintTop_toTopOf="@id/guide_data_icon" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:textColor="?colorPrimary"
+            android:id="@+id/guide_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exit_voyage"
+            android:layout_marginStart="@dimen/_25mdp"
+            app:layout_constraintBottom_toBottomOf="@id/guide_getStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guide_getStart" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/guide_getStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_50mdp"
+            android:text="@string/get_start"
+            android:layout_marginEnd="@dimen/_25mdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

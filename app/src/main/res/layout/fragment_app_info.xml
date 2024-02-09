@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.app.fragments.AppInfoFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/app_header"
+                android:animateLayoutChanges="true"
+                android:padding="@dimen/_16mdp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/banner_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_16mdp"
+                    android:visibility="gone"
+                    android:adjustViewBounds="true"
+                    app:shapeAppearance="@style/RoundedStyle.Two" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/app_icon"
+                    android:layout_width="@dimen/_48mdp"
+                    android:layout_height="@dimen/_48mdp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6mdp"
+                    android:ellipsize="end"
+                    android:maxEms="12"
+                    android:singleLine="true"
+                    android:text="AppName"
+                    android:textSize="@dimen/sp_16"
+                    app:fontFamily="@font/sans" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/app_pack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="PackageName"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="Version"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:singleLine="true" />
+
+            </LinearLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/app_info_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
+
